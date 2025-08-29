@@ -1,6 +1,6 @@
 # Neopets Timezone Converter
 
-A Chrome extension that converts Neopets Standard Time (NST) to your preferred timezone.
+A Firefox extension that converts Neopets Standard Time (NST) to your preferred timezone.
 
 ## Features
 
@@ -13,21 +13,21 @@ A Chrome extension that converts Neopets Standard Time (NST) to your preferred t
 
 ## Installation
 
-### From Chrome Web Store (Coming Soon)
-1. Visit the Chrome Web Store page (link TBD)
-2. Click "Add to Chrome"
+### From Firefox Add-ons (Coming Soon)
+1. Visit the Firefox Add-ons page (link TBD)
+2. Click "Add to Firefox"
 3. Confirm the installation
 
 ### Manual Installation (Developer Mode)
 1. Download or clone this repository to your computer
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" by toggling the switch in the top-right corner
-4. Click "Load unpacked" and select the directory containing this extension
-5. The extension icon should now appear in your Chrome toolbar
+2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`
+3. Click "Load Temporary Add-on..."
+4. Select the manifest.json file in the extension directory
+5. The extension icon should now appear in your Firefox toolbar
 
 ## Usage
 
-1. Click the extension icon in your Chrome toolbar to open the settings popup
+1. Click the extension icon in your Firefox toolbar to open the settings popup
 2. Select your preferred timezone from the dropdown list
 3. Click "Save" to apply your settings
 4. Visit Neopets.com - the NST time will now display in your chosen timezone
@@ -36,7 +36,7 @@ A Chrome extension that converts Neopets Standard Time (NST) to your preferred t
 
 - NST (Neopets Standard Time) is equivalent to Pacific Time (PST/PDT)
 - The extension works by replacing the time display on the page, not by changing any game mechanics
-- Your timezone preference is stored locally in your browser
+- Your timezone preference is stored locally in your browser using Firefox's storage API
 
 ## Support
 
