@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Neopets Timezone Converter</title>
+  <style>
+    body {
+      font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+      width: 300px;
+      padding: 16px;
+      font-size: 14px;
+      color: #202124;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #202124;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    select {
+      padding: 8px 12px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      background: white;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    select:focus {
+      outline: none;
+      border-color: #1a73e8;
+      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+    }
+    .status {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #5f6368;
+    }
+    .button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .button:hover {
+      background-color: #1765cc;
+    }
+    .button:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.4);
+    }
+    .info {
+      margin-top: 16px;
+      padding: 8px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #5f6368;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Neopets Timezone Converter</h1>
+    <label for="timezone">Select your timezone:</label>
+    <select id="timezone"></select>
+    
+    <!-- DST checkbox removed as it was causing issues -->
+    
+    <button id="save" class="button">Save</button>
+    
+    <div id="status" class="status"></div>
+    
+    <div class="reset-info" style="margin-top: 16px; padding: 10px; border: 1px solid #dadce0; border-radius: 4px;">
+      <h2 style="font-size: 14px; font-weight: 500; margin-top: 0; margin-bottom: 8px;">Neopets Daily Reset</h2>
+      <p style="font-size: 13px; margin: 4px 0;">Reset time in your timezone: <span id="reset-time-local">--:-- --</span></p>
+      <p style="font-size: 13px; margin: 4px 0;">Time until next reset: <span id="reset-countdown">-- hours, -- minutes</span></p>
+    </div>
+    
+    <div class="info">
+      <p>NST (Neopets Standard Time) is equivalent to Pacific Standard Time (PST/PDT).</p>
+      <p>Shoutout to <a href="https://www.reddit.com/user/nsheng/" target="_blank" style="color: #1a73e8; text-decoration: none;">nsheng</a> for his Food Club picks</p>
+      <p>Like this tool? Give <a href="https://www.neopets.com/petlookup.phtml?pet=Bob__13" target="_blank" style="color: #1a73e8; text-decoration: none;">Bob__13</a> a 5 star rating to say thanks!</p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
