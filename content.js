@@ -130,8 +130,12 @@ function convertNSTtoTimezone(nstTimeString, targetTimezone) {
     const resetSoon = isCloseToReset();
     const textColor = resetSoon ? '#FF0000' : 'inherit'; // Red text if close to reset
     
-    // Return formatted time with center-alignment and original Neopets font styling
-    return `<span style="display:block; text-align:center; font-weight:bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: ${textColor};">${timeDisplay}</span><span style="display:block; text-align:center; font-weight:bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: ${textColor};">${timezoneDisplay}</span>`;
+    // Return an object with the formatted components and styling info
+    return {
+      timeDisplay,
+      timezoneDisplay,
+      textColor
+    };
   } catch (error) {
     console.error('Error converting NST time:', error);
     return nstTimeString; // Return original on error
@@ -236,7 +240,29 @@ function performTimeUpdate(isPermanent = false) {
       
       // Create a clone of the element that will hold our converted time permanently
       const permanentTimeElement = document.createElement('div');
-      permanentTimeElement.innerHTML = convertedTime;
+      
+      // Create time display span
+      const timeSpan = document.createElement('span');
+      timeSpan.textContent = convertedTime.timeDisplay;
+      timeSpan.style.display = 'block';
+      timeSpan.style.textAlign = 'center';
+      timeSpan.style.fontWeight = 'bold';
+      timeSpan.style.fontFamily = 'Verdana, Arial, Helvetica, sans-serif';
+      timeSpan.style.color = convertedTime.textColor;
+      
+      // Create timezone display span
+      const timezoneSpan = document.createElement('span');
+      timezoneSpan.textContent = convertedTime.timezoneDisplay;
+      timezoneSpan.style.display = 'block';
+      timezoneSpan.style.textAlign = 'center';
+      timezoneSpan.style.fontWeight = 'bold';
+      timezoneSpan.style.fontFamily = 'Verdana, Arial, Helvetica, sans-serif';
+      timezoneSpan.style.color = convertedTime.textColor;
+      
+      // Append the spans to the permanent element
+      permanentTimeElement.appendChild(timeSpan);
+      permanentTimeElement.appendChild(timezoneSpan);
+      
       permanentTimeElement.style.textAlign = 'center';
       permanentTimeElement.style.fontWeight = 'bold';
       permanentTimeElement.style.fontFamily = 'Verdana, Arial, Helvetica, sans-serif';
@@ -284,7 +310,29 @@ function performTimeUpdate(isPermanent = false) {
       
       // Create a clone of the element that will hold our converted time permanently
       const permanentTimeElement = document.createElement('div');
-      permanentTimeElement.innerHTML = convertedTime;
+      
+      // Create time display span
+      const timeSpan = document.createElement('span');
+      timeSpan.textContent = convertedTime.timeDisplay;
+      timeSpan.style.display = 'block';
+      timeSpan.style.textAlign = 'center';
+      timeSpan.style.fontWeight = 'bold';
+      timeSpan.style.fontFamily = 'Verdana, Arial, Helvetica, sans-serif';
+      timeSpan.style.color = convertedTime.textColor;
+      
+      // Create timezone display span
+      const timezoneSpan = document.createElement('span');
+      timezoneSpan.textContent = convertedTime.timezoneDisplay;
+      timezoneSpan.style.display = 'block';
+      timezoneSpan.style.textAlign = 'center';
+      timezoneSpan.style.fontWeight = 'bold';
+      timezoneSpan.style.fontFamily = 'Verdana, Arial, Helvetica, sans-serif';
+      timezoneSpan.style.color = convertedTime.textColor;
+      
+      // Append the spans to the permanent element
+      permanentTimeElement.appendChild(timeSpan);
+      permanentTimeElement.appendChild(timezoneSpan);
+      
       permanentTimeElement.style.textAlign = 'center';
       permanentTimeElement.style.fontWeight = 'bold';
       permanentTimeElement.style.fontFamily = 'Verdana, Arial, Helvetica, sans-serif';
